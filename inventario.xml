@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalogo>
+  <producto>
+    <codigo>ALT-002</codigo>
+    <nombre>Altavoces estéreo</nombre>
+    <precio>35.50</precio>
+    <stock>10</stock>
+    <categoriaId>3</categoriaId>
+    <proveedorId>2</proveedorId>
+  </producto>
+  <producto>
+    <codigo>HUB-003</codigo>
+    <nombre>Hub USB 4 puertos</nombre>
+    <precio>12</precio>
+    <stock>0</stock>
+    <categoriaId>1</categoriaId>
+    <proveedorId>2</proveedorId>
+  </producto>
+  <producto>
+    <codigo>MON-103</codigo>
+    <nombre>Monitor 27 pulgadas</nombre>
+    <precio>219.00</precio>
+    <stock>5</stock>
+    <categoriaId>2</categoriaId>
+    <proveedorId>2</proveedorId>
+  </producto>
+  <producto>
+    <codigo>RAT-001</codigo>
+    <nombre>Ratón inalámbrico</nombre>
+    <precio>19.90</precio>
+    <stock>25</stock>
+    <categoriaId>1</categoriaId>
+    <proveedorId>1</proveedorId>
+  </producto>
+  <producto>
+    <codigo>RAT-102</codigo>
+    <nombre>Ratón óptico</nombre>
+    <precio>9.50</precio>
+    <stock>40</stock>
+    <categoriaId>1</categoriaId>
+    <proveedorId>1</proveedorId>
+  </producto>
+  <producto>
+    <codigo>TEC-101</codigo>
+    <nombre>Teclado inalámbrico</nombre>
+    <precio>24.90</precio>
+    <stock>10</stock>
+    <categoriaId>1</categoriaId>
+    <proveedorId>1</proveedorId>
+  </producto>
+</catalogo>
