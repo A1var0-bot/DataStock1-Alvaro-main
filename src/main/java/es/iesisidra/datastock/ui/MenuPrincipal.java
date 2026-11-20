@@ -48,17 +48,36 @@ public class MenuPrincipal {
             System.out.println("4. Consultar productos");
             System.out.println("5. Exportar productos");
             System.out.println("6. Guardar y recuperar inventario");
+            System.out.println("7. Gestionar base de datos MySQL");
             System.out.println("0. Salir");
-            opcion = LectorConsola.leerOpcion("Selecciona una opción: ", 0, 6);
+            opcion = LectorConsola.leerOpcion("Selecciona una opción: ", 0, 7);
             switch (opcion) {
-                case 1 -> explorarRutas();
-                case 2 -> importarJson();
-                case 3 -> importarXml();
-                case 4 -> menuConsultas();
-                case 5 -> menuExportaciones();
-                case 6 -> menuSerializacion();
-                case 0 -> System.out.println(ColoresConsola.pintar("Hasta pronto.", ColoresConsola.VERDE));
-                default -> throw new IllegalStateException("Opción inesperada");
+                case 1:
+                    explorarRutas();
+                    break;
+                case 2:
+                    importarJson();
+                    break;
+                case 3:
+                    importarXml();
+                    break;
+                case 4:
+                    menuConsultas();
+                    break;
+                case 5:
+                    menuExportaciones();
+                    break;
+                case 6:
+                    menuSerializacion();
+                    break;
+                case 7:
+                    new MenuMySQL(inventario).iniciar();
+                    break;
+                case 0:
+                    System.out.println(ColoresConsola.pintar("Hasta pronto.", ColoresConsola.VERDE));
+                    break;
+                default:
+                    break;
             }
         } while (opcion != 0);
     }
@@ -81,11 +100,20 @@ public class MenuPrincipal {
             System.out.println("0. Volver al menú principal");
             opcion = LectorConsola.leerOpcion("Selecciona una opción: ", 0, 3);
             switch (opcion) {
-                case 1 -> { consultas.mostrarListado(); LectorConsola.pausar(); }
-                case 2 -> { consultas.mostrarBusquedaCodigo(); LectorConsola.pausar(); }
-                case 3 -> { consultas.mostrarBusquedaNombre(); LectorConsola.pausar(); }
-                case 0 -> { }
-                default -> throw new IllegalStateException("Opción inesperada");
+                case 1:
+                    consultas.mostrarListado();
+                    LectorConsola.pausar();
+                    break;
+                case 2:
+                    consultas.mostrarBusquedaCodigo();
+                    LectorConsola.pausar();
+                    break;
+                case 3:
+                    consultas.mostrarBusquedaNombre();
+                    LectorConsola.pausar();
+                    break;
+                default:
+                    break;
             }
         } while (opcion != 0);
     }
@@ -99,10 +127,16 @@ public class MenuPrincipal {
             System.out.println("0. Volver al menú principal");
             opcion = LectorConsola.leerOpcion("Selecciona una opción: ", 0, 2);
             switch (opcion) {
-                case 1 -> { exportador.exportar("JSON"); LectorConsola.pausar(); }
-                case 2 -> { exportador.exportar("XML"); LectorConsola.pausar(); }
-                case 0 -> { }
-                default -> throw new IllegalStateException("Opción inesperada");
+                case 1:
+                    exportador.exportar("JSON");
+                    LectorConsola.pausar();
+                    break;
+                case 2:
+                    exportador.exportar("XML");
+                    LectorConsola.pausar();
+                    break;
+                default:
+                    break;
             }
         } while (opcion != 0);
     }
@@ -116,10 +150,16 @@ public class MenuPrincipal {
             System.out.println("0. Volver al menú principal");
             opcion = LectorConsola.leerOpcion("Selecciona una opción: ", 0, 2);
             switch (opcion) {
-                case 1 -> { control.guardarInventario(); LectorConsola.pausar(); }
-                case 2 -> { control.recuperarInventario(); LectorConsola.pausar(); }
-                case 0 -> { }
-                default -> throw new IllegalStateException("Opción inesperada");
+                case 1:
+                    control.guardarInventario();
+                    LectorConsola.pausar();
+                    break;
+                case 2:
+                    control.recuperarInventario();
+                    LectorConsola.pausar();
+                    break;
+                default:
+                    break;
             }
         } while (opcion != 0);
     }

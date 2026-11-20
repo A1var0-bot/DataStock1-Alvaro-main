@@ -5,14 +5,12 @@ import java.util.regex.Pattern;
 
 import es.iesisidra.datastock.modelo.Producto;
 
-
 public final class ValidadorProducto {
 
-
-    private static final BigDecimal precio_max = new BigDecimal("99999999.99");
+    private static final BigDecimal PRECIO_MAXIMO = new BigDecimal("99999999.99");
     private static final Pattern PATRON_CODIGO = Pattern.compile("[A-Z0-9-]+", Pattern.CASE_INSENSITIVE);
 
-    //Validar codigo ===================================================
+    // Validar Codigo ====================================================
     public static String normalizarCodigo(String codigo) {
         if (codigo == null) {
             return "";
@@ -33,7 +31,7 @@ public final class ValidadorProducto {
         return null;
     }
 
-    //Validar nombre ===================================================================
+    //Validar nombre ================================================
      public static String normalizarNombre(String nombre) {
         if (nombre == null) {
             return "";
@@ -54,8 +52,8 @@ public final class ValidadorProducto {
         return null;
     }
 
-    //Validar precio ================================================================
-    public static String validarPrecio(BigDecimal precio) {
+    //Validar precio==========================================================
+     public static String validarPrecio(BigDecimal precio) {
         if (precio == null) {
             return "el precio es obligatorio.";
         }
@@ -65,31 +63,28 @@ public final class ValidadorProducto {
         if (precio.stripTrailingZeros().scale() > 2) {
             return "el precio no puede tener más de 2 decimales.";
         }
-        if (precio.compareTo(precio_max) > 0) {
-            return "el precio no puede ser mayor que " + precio_max;
+        if (precio.compareTo(PRECIO_MAXIMO) > 0) {
+            return "el precio no puede ser mayor que " + PRECIO_MAXIMO + ".";
         }
         return null;
     }
 
-    //Validar stock ==================================================================
-    public static String validarStock(int stock) {
+    //Validar stock ===================================================================
+      public static String validarStock(int stock) {
         if (stock < 0) {
             return "el stock no puede ser negativo.";
         }
         return null;
     }
 
-    //Validar categoria y proveedor =================================================
-    public static String validarId(int id, String campo) {
+    //Validar categoria y proveedor ==========================================================0
+     public static String validarId(int id, String campo) {
         if (id <= 0) {
             return "el identificador de " + campo + " debe ser un entero positivo.";
         }
         return null;
     }
 
-    /**Validar productos =============================================================
-     * @return null si el producto se puede enviar a MySQL; si no, el motivo.
-     */
     public static String validarProducto(Producto p) {
         String error = validarCodigo(normalizarCodigo(p.getCodigo()));
         if (error != null) {
@@ -113,8 +108,6 @@ public final class ValidadorProducto {
         }
         return validarId(p.getProveedorId(), "proveedor");
     }
-
-    private ValidadorProducto() { }
 
     /**
      * Comprueba un producto ya construido.

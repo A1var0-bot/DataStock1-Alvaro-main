@@ -1,6 +1,7 @@
 package es.iesisidra.datastock.util;
 
-public class Mensajes {
+public final class Mensajes {
+
     private Mensajes() { }
 
     public static void error(String texto) {
